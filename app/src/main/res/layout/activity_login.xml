@@ -10,7 +10,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.iitbit.Login"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ffffff">
     <ImageView
         android:layout_width="250sp"
         android:layout_height="50sp"
@@ -73,7 +74,6 @@
         android:layout_marginRight="30sp"
         android:layout_marginBottom="30sp"
         android:clickable="true"
-        android:onClick="ClickedForgotPassword"
         android:textColor="#3d1516"/>
 
     <Button

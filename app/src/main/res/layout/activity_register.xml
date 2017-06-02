@@ -10,7 +10,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.iitbit.Register"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
     <ImageView
         android:layout_width="250sp"
         android:layout_height="50sp"
@@ -72,7 +73,6 @@
            android:layout_height="wrap_content"
            android:text="@string/TC"
            android:clickable="true"
-           android:onClick="ClickedTermsConditions"
            android:textColor="#8d8d8f" />
    </LinearLayout>
     
