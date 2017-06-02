@@ -1,133 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"    >
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.iitbit.Login"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.login.step1.Step1Activity"
     android:orientation="vertical"
-    android:background="#ffffff">
-    <ImageView
-        android:layout_width="250sp"
-        android:layout_height="50sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20sp"
-        android:src="@drawable/logo"
-        android:layout_marginBottom="50sp"
-        />
+    android:background="#ffffff"
+    android:weightSum="1">
+
+
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10sp"
-        android:layout_marginRight="10sp"
-        android:layout_marginBottom="30sp">
+        android:layout_weight="0.66"
+        android:weightSum="1">
+
         <ImageView
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:layout_marginLeft="15sp"
-            android:layout_marginRight="10sp"
-            android:src="@drawable/picuser"
-            android:scaleType="centerCrop"/>
-        <EditText
-            android:id="@+id/et_LoginID"
+            android:layout_width="250sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20sp"
+            android:src="@drawable/logo"
+            android:layout_marginBottom="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="20sp">
+
+                <ImageView
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/picuser"
+                    android:scaleType="centerCrop"/>
+                <EditText
+                    android:id="@+id/et_LoginID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email / Mobile Number"
+                    android:inputType="phone|textEmailAddress"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="13sp">
+
+                <ImageView
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginRight="10sp"
+                    android:src="@drawable/picpassword"
+                    android:scaleType="centerCrop"/>
+
+                <EditText
+                    android:id="@+id/et_LoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.33">
+
+                <TextView
+                    android:id="@+id/tv_forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password?"
+                    android:textSize="17sp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="30sp"
+                    android:layout_marginBottom="30sp"
+                    android:clickable="true"
+                    android:textColor="#3d1516"/>
+
+                <Button
+                    android:id="@+id/btn_signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:text="Sign In"
+                    android:textSize="20sp"
+                    android:padding="20sp"
+                    android:background="#42a9d9"
+                    android:textColor="#fcfcfc"
+                    android:layout_marginBottom="30sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 BitCoin"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:layout_marginBottom="20sp"/>
+
+                <TextView
+                    android:id="@+id/tv_BitcoinbuyPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buy Rs.1,03,174"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:layout_marginBottom="5sp"/>
+
+                <TextView
+                    android:id="@+id/tv_BitcoinsellPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sell Rs.98,273"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:layout_marginBottom="10sp"/>
+
+            </LinearLayout>
+
+
+        <Button
+            android:layout_margin="10sp"
+            android:id="@+id/btn_createNewWallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email / Mobile Number"
-            android:inputType="phone|textEmailAddress"/>
+            android:text=" Create new wallet "
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:padding="10sp"
+            android:textSize="22sp"
+            android:background="#42a9d9"
+            android:layout_alignBaseline="@+id/reg"
+            android:layout_alignBottom="@+id/reg"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#fcfcfc" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10sp"
-        android:layout_marginRight="10sp"
-        android:layout_marginBottom="13sp">
-    <ImageView
-        android:layout_width="40sp"
-        android:layout_height="40sp"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="10sp"
-        android:src="@drawable/picpassword"
-        android:scaleType="centerCrop"/>
-    <EditText
-        android:id="@+id/et_LoginPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"/>
 </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textSize="17sp"
-        android:layout_gravity="right"
-        android:layout_marginRight="30sp"
-        android:layout_marginBottom="30sp"
-        android:clickable="true"
-        android:textColor="#3d1516"/>
-
-    <Button
-        android:id="@+id/btn_signIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:text="Sign In"
-        android:textSize="20sp"
-        android:padding="20sp"
-        android:background="#42a9d9"
-        android:textColor="#fcfcfc"
-        android:layout_marginBottom="30sp"/>
-     <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="1 BitCoin"
-         android:layout_gravity="center_horizontal"
-         android:textSize="22sp"
-         android:textStyle="italic"
-         android:layout_marginBottom="30sp"/>
-    <TextView
-        android:id="@+id/tv_BitcoinbuyPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buy Rs.1,03,174"
-        android:layout_gravity="center_horizontal"
-        android:textSize="22sp"
-        android:textStyle="italic"
-        android:layout_marginBottom="5sp"/>
-    <TextView
-        android:id="@+id/tv_BitcoinsellPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sell Rs.98,273"
-        android:layout_gravity="center_horizontal"
-        android:textSize="22sp"
-        android:textStyle="italic"
-        android:layout_marginBottom="30sp"/>
-    <Button
-        android:layout_margin="10sp"
-        android:id="@+id/btn_createNewWallet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=" Create new wallet "
-        android:textAllCaps="false"
-        android:padding="10sp"
-        android:textSize="22sp"
-        android:background="#42a9d9"
-        android:textColor="#fcfcfc"
-        android:textAlignment="textStart"
-        android:layout_gravity="start"/>
 
 
-</LinearLayout>
-</ScrollView>
+
+
+
