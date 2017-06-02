@@ -15,17 +15,32 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.66"
         android:weightSum="1">
 
-        <ImageView
-            android:layout_width="250sp"
-            android:layout_height="50sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20sp"
-            android:src="@drawable/logo"
-            android:layout_marginBottom="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.22">
+
+            <ImageView
+                android:layout_width="250sp"
+                android:layout_height="50sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20sp"
+                android:src="@drawable/logo"
+                android:layout_marginBottom="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.22">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,6 +91,10 @@
                     android:inputType="textPassword"/>
             </LinearLayout>
 
+        </LinearLayout>
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,7 +131,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="122dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="0.22">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,23 +166,30 @@
             </LinearLayout>
 
 
-        <Button
-            android:layout_margin="10sp"
-            android:id="@+id/btn_createNewWallet"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Create new wallet "
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:padding="10sp"
-            android:textSize="22sp"
-            android:background="#42a9d9"
-            android:layout_alignBaseline="@+id/reg"
-            android:layout_alignBottom="@+id/reg"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#fcfcfc" />
+            android:orientation="vertical">
+
+            <Button
+                android:layout_margin="10sp"
+                android:id="@+id/btn_createNewWallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Create new wallet "
+                android:gravity="bottom"
+                android:layout_gravity="bottom"
+                android:textAllCaps="false"
+                android:padding="10sp"
+                android:textSize="22sp"
+                android:background="#42a9d9"
+                android:layout_alignBaseline="@+id/reg"
+                android:layout_alignBottom="@+id/reg"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textColor="#fcfcfc" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
