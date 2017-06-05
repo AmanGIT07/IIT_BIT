@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -47,5 +48,11 @@ public class NavigationActivity extends AppCompatActivity {
 //        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //        transaction.replace(R.id.frame_layout,HomeScreenFragment);
 //        transaction.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list,menu);
+        return true;
     }
 }
