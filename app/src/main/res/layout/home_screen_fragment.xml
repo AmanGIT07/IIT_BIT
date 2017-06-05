@@ -40,8 +40,8 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:textSize="20sp"
-                    android:hint="text appears here"
-                    android:layout_marginLeft="5sp"
+                    android:text="text appears here"
+                    android:layout_marginLeft="15sp"
                     android:layout_marginTop="5sp"
                     android:layout_centerVertical="true"
                     android:textIsSelectable="true"
@@ -74,6 +74,7 @@
                     style="?android:attr/borderlessButtonStyle"/>
             </RelativeLayout>
             <ImageButton
+                android:id="@+id/iv_qrCode"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight=".7"/>

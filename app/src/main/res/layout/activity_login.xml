@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email / Mobile Number"
-                    android:inputType="phone|textEmailAddress"/>
+                    android:inputType="textEmailAddress|phone"/>
             </LinearLayout>
 
             <LinearLayout

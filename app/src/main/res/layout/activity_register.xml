@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.iitbit.Register"
     android:orientation="vertical"
-    android:background="#FFFFFF"><LinearLayout
+    android:background="#FFFFFF">
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +19,7 @@
     <LinearLayout
         android:layout_weight=".3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <ImageView
             android:layout_width="250sp"
@@ -31,78 +32,91 @@
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textSize="23sp"/>
+            android:textSize="23sp"
+            android:drawableLeft="@mipmap/ic_launcher_round"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_reg_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:hint="Mobile"
+            android:maxLength="10"
             android:inputType="phone"
-            android:textSize="23sp"/></LinearLayout>
+            android:textSize="23sp"
+            android:drawableLeft="@mipmap/ic_launcher_round"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_reg_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:hint="Username"
             android:inputType="textEmailAddress"
-            android:textSize="23sp"/>
+            android:textSize="23sp"
+            android:drawableLeft="@mipmap/ic_launcher_round"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_reg_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textSize="23sp"/>
+            android:textSize="23sp"
+            android:drawableLeft="@mipmap/ic_launcher_round"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_reg_confirmPassword"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:textSize="23sp"/>
+            android:textSize="23sp"
+            android:drawableLeft="@mipmap/ic_launcher_round"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
         <CheckBox
             android:id="@+id/checkbox_termsCond"
             android:layout_marginLeft="30sp"
@@ -120,9 +134,10 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_signUP"
         android:layout_weight=".2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginBottom="20sp"
