@@ -45,6 +45,7 @@ public class NavigationActivity extends AppCompatActivity {
                 return true;
             }
         });
+        //initial default fragment for one time use
 //        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //        transaction.replace(R.id.frame_layout,HomeScreenFragment);
 //        transaction.commit();

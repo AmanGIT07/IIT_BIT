@@ -8,4 +8,10 @@
     <string name="surveyMonkey"><u>Survey Monkey</u></string>
     <string name="buy"><u>Buy</u></string>
     <string name="sell"><u>Sell</u></string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

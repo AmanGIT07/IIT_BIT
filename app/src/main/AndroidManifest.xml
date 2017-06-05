@@ -20,7 +20,11 @@
         <activity android:name=".Register" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".TermsConditions" />
-        <activity android:name=".NavigationActivity"></activity>
+        <activity android:name=".NavigationActivity" />
+        <activity
+            android:name=".NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

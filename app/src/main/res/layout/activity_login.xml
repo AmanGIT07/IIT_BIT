@@ -8,8 +8,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.android.iitbit.Login"
     android:orientation="vertical"
-    android:background="#ffffff"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/fragment_background">
 
 
     <LinearLayout
