@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+     <item android:id="@+id/bottom_nav_home"
+         android:icon="@mipmap/ic_launcher_round"
+         android:title="My Wallet"
+         android:enabled="true"/>
+    <item android:id="@+id/bottom_nav_earn"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="Earn"
+        android:enabled="true"/>
+    <item android:id="@+id/bottom_nav_transfer"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="Transfer"
+        android:enabled="true"/>
+    <item android:id="@+id/bottom_nav_shop"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="Shop"
+        android:enabled="true"/>
+    <item android:id="@+id/bottom_nav_transactions"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="Transactions"
+        android:enabled="true"/>
+
+</menu>

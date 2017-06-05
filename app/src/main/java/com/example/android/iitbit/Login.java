@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
-        Button register;
+        Button register,signIn;
         Intent intent;
         TextView tv1;
     @Override
@@ -16,6 +16,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
+
         tv1 = (TextView)findViewById(R.id.tv_forgotPassword);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,11 +25,21 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         register = (Button)findViewById(R.id.btn_createNewWallet);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(Login.this,Register.class);
+                startActivity(intent);
+            }
+        });
+
+        signIn = (Button)findViewById(R.id.btn_signIn);
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(Login.this,NavigationActivity.class);
                 startActivity(intent);
             }
         });

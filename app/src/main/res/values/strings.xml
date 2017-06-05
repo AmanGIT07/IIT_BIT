@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">IIT BIT</string>
     <string name="TC"><u>Terms and Conditions</u></string>
+    <string name="srtRef">Invite a friend to Bitjoy and receive a commission on every reward they earn in any game! Just make sure they sign up for a Bitjoy account through your special invite link.</string>
+    <string name="strSurvey">Earn FREE Bitcoin fro completing simple tasks and surveys, by selecting any of the survey provided below that you like</string>
+    <string name="wannad"><u>Wannads</u></string>
+    <string name="offerDadddy"><u>Offer Dadddy</u></string>
+    <string name="surveyMonkey"><u>Survey Monkey</u></string>
+    <string name="buy"><u>Buy</u></string>
+    <string name="sell"><u>Sell</u></string>
 </resources>

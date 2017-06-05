@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IITBIT.iml" filepath="$PROJECT_DIR$/IITBIT.iml" />
-      <module fileurl="file://$PROJECT_DIR$/IIT_BIT.iml" filepath="$PROJECT_DIR$/IIT_BIT.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -19,7 +19,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".TermsConditions"></activity>
+        <activity android:name=".TermsConditions" />
+        <activity android:name=".NavigationActivity"></activity>
     </application>
 
 </manifest>
