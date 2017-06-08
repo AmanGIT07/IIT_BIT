@@ -1,7 +1,13 @@
 package com.example.android.iitbit;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
+    private final long refreshDelay = 2 * 1000;
+    SendHttpRequestThread sendHttpRequestThread;
         Button register,signIn;
         Intent intent;
         TextView tv1;
@@ -19,6 +27,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
+
+        sendHttpRequestThread = new SendHttpRequestThread();
+        sendHttpRequestThread.start();
 
         tv1 = (TextView)findViewById(R.id.tv_forgotPassword);
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +66,62 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    class SendHttpRequestThread extends Thread {
+
+        boolean sendHttpRequest;
+
+
+        public SendHttpRequestThread() {
+
+            sendHttpRequest = true;
+        }
+
+        public void stopSendingHttpRequest() {
+            sendHttpRequest = false;
+        }
+
+        protected void onStop() {
+            sendHttpRequestThread.stopSendingHttpRequest();
+            super.stop();
+        }
+
+        @Override
+        public void run() {
+            while (sendHttpRequest) {
+                boolean isConnected = isNetworkConnected();
+
+                if(!isConnected){
+                    // showAlert();
+                    AlertDialog.Builder build = new AlertDialog.Builder(Login.this);
+                    build.setMessage("Not connected to the Internet").setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                    AlertDialog a = build.create();
+                    a.setTitle("Error!");
+                    a.show();
+                }
+                else {
+                    //check validity of userId and password
+                }
+
+                SystemClock.sleep(refreshDelay);
+            }
+        }
+    }
+    private boolean isNetworkConnected() {
+        ConnectivityManager conManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conManager.getActiveNetworkInfo();
+        if (netInfo == null) {
+            // There are no active networks.
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
