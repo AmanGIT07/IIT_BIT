@@ -29,15 +29,6 @@ public class Register extends Activity {
         et_password = (EditText)findViewById(R.id.et_reg_password);
         et_confirmPassword = (EditText)findViewById(R.id.et_reg_confirmPassword);
 
-        email = et_email.getText().toString().trim();
-        mobile = et_mobile.getText().toString().trim();
-        userName = et_userName.getText().toString().trim();
-        pass1 = et_password.getText().toString().trim();
-        pass2 = et_confirmPassword.getText().toString().trim();
-        register = (Button)findViewById(R.id.btn_signUP);
-        tc = (TextView)findViewById(R.id.tv_TermsCond);
-        checkBox = (CheckBox)findViewById(R.id.checkbox_termsCond);
-
         tc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +40,14 @@ public class Register extends Activity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                email = et_email.getText().toString().trim();
+                mobile = et_mobile.getText().toString().trim();
+                userName = et_userName.getText().toString().trim();
+                pass1 = et_password.getText().toString().trim();
+                pass2 = et_confirmPassword.getText().toString().trim();
+                register = (Button)findViewById(R.id.btn_signUP);
+                tc = (TextView)findViewById(R.id.tv_TermsCond);
+                checkBox = (CheckBox)findViewById(R.id.checkbox_termsCond);
 
                 if(email.isEmpty())
                     et_email.setError("Required");
