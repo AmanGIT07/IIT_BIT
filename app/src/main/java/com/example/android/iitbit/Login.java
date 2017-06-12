@@ -15,21 +15,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
-    private final long refreshDelay = 2 * 1000;
-    SendHttpRequestThread sendHttpRequestThread;
         Button register,signIn;
         Intent intent;
         TextView tv1;
     EditText et_userId,et_pass;
     String userID,password;
+
+    @Override
+    public void onBackPressed() {
+        //Do nothing
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
-
-        sendHttpRequestThread = new SendHttpRequestThread();
-        sendHttpRequestThread.start();
 
         tv1 = (TextView)findViewById(R.id.tv_forgotPassword);
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -66,63 +67,39 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-    class SendHttpRequestThread extends Thread {
 
-        boolean sendHttpRequest;
+        if(!checkConnected())
+        {
+            AlertDialog.Builder build = new AlertDialog.Builder(Login.this);
+            build.setMessage("Device not connected to Network.Click ok to exit")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
+                            finish();
+                            Intent intent = new  Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
+                            System.exit(0);
 
-        public SendHttpRequestThread() {
-
-            sendHttpRequest = true;
+                        }
+                    })
+                    .setCancelable(false);
+            AlertDialog a = build.create();
+            a.setTitle("Error!");
+            a.show();
         }
 
-        public void stopSendingHttpRequest() {
-            sendHttpRequest = false;
-        }
-
-        protected void onStop() {
-            sendHttpRequestThread.stopSendingHttpRequest();
-            super.stop();
-        }
-
-        @Override
-        public void run() {
-            while (sendHttpRequest) {
-                boolean isConnected = isNetworkConnected();
-
-                if(!isConnected){
-                    // showAlert();
-                    AlertDialog.Builder build = new AlertDialog.Builder(Login.this);
-                    build.setMessage("Not connected to the Internet").setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            });
-                    AlertDialog a = build.create();
-                    a.setTitle("Error!");
-                    a.show();
-                }
-                else {
-                    //check validity of userId and password
-                }
-
-                SystemClock.sleep(refreshDelay);
-            }
-        }
-    }
-    private boolean isNetworkConnected() {
-        ConnectivityManager conManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = conManager.getActiveNetworkInfo();
-        if (netInfo == null) {
-            // There are no active networks.
-            return false;
-        } else {
-            return true;
-        }
     }
 
+
+
+    public boolean checkConnected(){
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+    }
 
 }

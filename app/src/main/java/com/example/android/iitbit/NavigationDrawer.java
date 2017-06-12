@@ -2,6 +2,7 @@ package com.example.android.iitbit;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -65,9 +66,12 @@ public class NavigationDrawer extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id)
+        {
+            case R.id.menu_settings:
+                Intent intent = new Intent(NavigationDrawer.this,SettingActivity.class);
+                startActivity(intent);
+                return  true;
         }
 
         return super.onOptionsItemSelected(item);
