@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Register extends Activity {
         TextView tc;
@@ -28,6 +30,19 @@ public class Register extends Activity {
         et_userName = (EditText)findViewById(R.id.et_reg_username);
         et_password = (EditText)findViewById(R.id.et_reg_password);
         et_confirmPassword = (EditText)findViewById(R.id.et_reg_confirmPassword);
+        register = (Button)findViewById(R.id.btn_signUP);
+        checkBox = (CheckBox)findViewById(R.id.checkbox_termsCond);
+        tc = (TextView)findViewById(R.id.tv_TermsCond);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                    register.setEnabled(true);
+                else
+                    register.setEnabled(false);
+            }
+        });
 
         tc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,9 +60,6 @@ public class Register extends Activity {
                 userName = et_userName.getText().toString().trim();
                 pass1 = et_password.getText().toString().trim();
                 pass2 = et_confirmPassword.getText().toString().trim();
-                register = (Button)findViewById(R.id.btn_signUP);
-                tc = (TextView)findViewById(R.id.tv_TermsCond);
-                checkBox = (CheckBox)findViewById(R.id.checkbox_termsCond);
 
                 if(email.isEmpty())
                     et_email.setError("Required");
@@ -59,7 +71,15 @@ public class Register extends Activity {
                     et_password.setError("Required");
                 if(pass2.isEmpty())
                     et_confirmPassword.setError("Required");
-
+                if(!(pass2.isEmpty())&&!(pass1.isEmpty()))
+                {
+                    if(!(pass2.equals(pass1)))
+                    {
+                        Toast.makeText(getApplicationContext(),"Passwords don't match",Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        password = pass1;
+                }
 
             }
         });

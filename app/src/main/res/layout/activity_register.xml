@@ -146,7 +146,8 @@
         android:padding="10sp"
         android:textSize="22sp"
         android:background="#42a9d9"
-        android:textColor="#fcfcfc"/>
+        android:textColor="#fcfcfc"
+        android:enabled="false"/>
 </LinearLayout>
 
 </LinearLayout>
