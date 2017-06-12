@@ -70,12 +70,18 @@ public class Login extends AppCompatActivity {
 
         if(!checkConnected())
         {
-            AlertDialog.Builder build = new AlertDialog.Builder(Login.this);
-            build.setMessage("Device not connected to Network.Click ok to exit")
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
+            new AlertDialog.Builder(Login.this)
+                    .setTitle("Error!")
+                    .setMessage("Device not connected to network..")
+                    .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                             startActivity(getIntent());
 
+                        }
+                    })
+                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
                             finish();
                             Intent intent = new  Intent(Intent.ACTION_MAIN);
                             intent.addCategory(Intent.CATEGORY_HOME);
@@ -83,13 +89,9 @@ public class Login extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                             System.exit(0);
-
                         }
                     })
-                    .setCancelable(false);
-            AlertDialog a = build.create();
-            a.setTitle("Error!");
-            a.show();
+                    .show();
         }
 
     }
