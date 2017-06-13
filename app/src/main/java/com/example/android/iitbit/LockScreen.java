@@ -54,7 +54,7 @@ public class LockScreen extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(),"Sorry PIN don't match",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect PIN",Toast.LENGTH_LONG).show();
                         et.setText("");
                     }
                 }
