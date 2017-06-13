@@ -2,10 +2,15 @@ package com.example.android.iitbit;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,7 +45,41 @@ public class NavigationDrawer extends AppCompatActivity
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.frame, new HomeScreenFragment());
         transaction.commit();
+
+        if(!checkConnected())
+        {
+            new AlertDialog.Builder(NavigationDrawer.this)
+                    .setTitle("Error!")
+                    .setMessage("Device not connected to network..")
+                    .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            startActivity(getIntent());
+
+                        }
+                    })
+                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            Intent intent = new  Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
+                            System.exit(0);
+                        }
+                    })
+                    .show();
+        }
     }
+
+
+    public boolean checkConnected(){
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -69,8 +108,12 @@ public class NavigationDrawer extends AppCompatActivity
         switch(id)
         {
             case R.id.menu_settings:
-                Intent intent = new Intent(NavigationDrawer.this,SettingActivity.class);
-                startActivity(intent);
+                Intent intentSettings = new Intent(NavigationDrawer.this,SettingActivity.class);
+                startActivity(intentSettings);
+                return  true;
+            case R.id.menu_appLock:
+                Intent intentLock = new Intent(NavigationDrawer.this,AppLockActivity.class);
+                startActivity(intentLock);
                 return  true;
         }
 
