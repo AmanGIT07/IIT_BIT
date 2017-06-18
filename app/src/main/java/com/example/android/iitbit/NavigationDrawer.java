@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -23,13 +24,18 @@ import android.view.MenuItem;
 
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static final String TAG_HOME = "home",  TAG_EARN = "earn",
+            TAG_TRANSFER = "transfer", TAG_SHOP = "shop", TAG_TRANSACTION = "transaction";
+    public static String CURRENT_TAG = TAG_HOME;
+    public static int navItemIndex = 0;
+    Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        handler = new Handler();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,9 +92,54 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+            return;
         }
+        if(navItemIndex!=0)
+        {
+            navItemIndex = 0;
+            CURRENT_TAG = TAG_HOME;
+            loadHomeFragment();
+            setTitle("My Wallet");
+            return;
+        }
+           // super.onBackPressed();
+        
+    }
+
+    private void loadHomeFragment() {
+        Runnable mRunnable = new Runnable() {
+            @Override
+            public void run() {
+                Fragment fragment = getFragmentIndex();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame,fragment);
+                transaction.commit();
+            }
+        };
+        if(mRunnable!=null)
+        {
+            handler.post(mRunnable);
+        }
+    }
+    private Fragment getFragmentIndex()
+    {
+        switch(navItemIndex)
+        {
+            case 0:
+                HomeScreenFragment homefragment = new HomeScreenFragment();
+                return homefragment;
+            case 1:
+                EarnScreenFragment earnfrag = new EarnScreenFragment();
+                return earnfrag;
+            case 2:
+                TransferScreenFragment transferFrag = new TransferScreenFragment();
+                return transferFrag;
+            case 3:
+                return new ShopScreenFragment();
+            case 4:
+                return new TransactionsScreenFragment();
+        }
+        return new HomeScreenFragment();
     }
 
     @Override
@@ -131,19 +182,28 @@ public class NavigationDrawer extends AppCompatActivity
             // Handle the home action
             setTitle("My Wallet");
             selectedFragment = new HomeScreenFragment();
+            CURRENT_TAG = TAG_HOME;
+            navItemIndex = 0;
         } else if (id == R.id.nav_earn) {
             setTitle("Earn");
             selectedFragment = new EarnScreenFragment();
+            CURRENT_TAG = TAG_EARN;
+            navItemIndex = 1;
         } else if (id == R.id.nav_transfer) {
             setTitle("Transfer");
             selectedFragment = new TransferScreenFragment();
+            CURRENT_TAG =TAG_TRANSFER;
+            navItemIndex = 2;
         } else if (id == R.id.nav_shop) {
             setTitle("Shop");
             selectedFragment = new ShopScreenFragment();
-
+            CURRENT_TAG = TAG_SHOP;
+            navItemIndex = 3;
         } else if (id == R.id.nav_transactions) {
             setTitle("Transactions");
             selectedFragment = new TransactionsScreenFragment();
+            CURRENT_TAG = TAG_TRANSACTION;
+            navItemIndex = 4;
         }
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

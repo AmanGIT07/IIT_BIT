@@ -31,7 +31,6 @@ public class HomeScreenFragment extends Fragment{
     String receivingAddress = "To Be Fetched";
     Intent intent;
     ImageView iv_qrCode;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
