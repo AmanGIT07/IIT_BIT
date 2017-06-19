@@ -14,12 +14,16 @@ public class ForgotPassword extends AppCompatActivity {
     int remTime;
     Intent intent;
 
+    @Override
+    public void onBackPressed() {
+        remTime = 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        remTime = 5*60*1000;//milli seconds
+        remTime =5*60*1000;//milli seconds
         tvShowTime =(TextView) findViewById(R.id.tv_showRemTime);
         handler = new Handler();
 
@@ -37,7 +41,6 @@ public class ForgotPassword extends AppCompatActivity {
                 }
                 else
                 {
-
                     intent = new Intent(ForgotPassword.this,Login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

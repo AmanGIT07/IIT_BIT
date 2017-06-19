@@ -58,9 +58,9 @@
         android:id="@+id/btn_LockScreenThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ReSet PIN"
-        android:textStyle="normal"
-        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:text="Save PIN"
         android:textAllCaps="false"
-        android:layout_gravity="center"/>
+        android:textSize="20sp"
+        android:textStyle="normal" />
 </LinearLayout>
