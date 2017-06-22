@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashScreen"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,20 +23,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Register" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".TermsConditions" />
-        <activity android:name=".NavigationActivity" />
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Register"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ForgotPassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TermsConditions"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".LockScreen" />
-        <activity android:name=".AppLockActivity" />
-        <activity android:name=".LockScreenTwo" />
-        <activity android:name=".LockScreenThree"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LockScreen"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AppLockActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LockScreenTwo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LockScreenThree"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
